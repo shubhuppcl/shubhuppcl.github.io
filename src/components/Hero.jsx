@@ -30,6 +30,21 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
+                    <div style={{ marginBottom: '30px' }}>
+                        <img
+                            src="/image.jpeg"
+                            alt="Shubham Singh"
+                            style={{
+                                width: '300px',
+                                height: '300px',
+                                borderRadius: '50%',
+                                objectFit: 'cover',
+                                border: '4px solid var(--accent-color)',
+                                boxShadow: '0 0 20px rgba(0, 242, 255, 0.3)'
+                            }}
+                        />
+                    </div>
+
                     <h2 style={{ fontSize: '1.5rem', color: 'var(--accent-color)', marginBottom: '20px' }}>
                         Hello, I'm
                     </h2>
@@ -67,13 +82,18 @@ const Hero = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '10px',
-                                fontSize: '1rem'
+                                fontSize: '1rem',
+                                textDecoration: 'none'
                             }}
                         >
                             <FaEnvelope /> Contact Me
                         </motion.a>
 
-                        <motion.button
+                        <motion.a
+                            href="/Shubham Singh.pdf"
+                            download="Shubham_Singh_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             style={{
@@ -85,12 +105,13 @@ const Hero = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '10px',
-                                fontSize: '1rem'
+                                fontSize: '1rem',
+                                textDecoration: 'none',
+                                cursor: 'pointer'
                             }}
-                            onClick={() => window.print()} // Simple resume print for now
                         >
                             <FaDownload /> Download Resume
-                        </motion.button>
+                        </motion.a>
                     </div>
                 </motion.div>
             </div>

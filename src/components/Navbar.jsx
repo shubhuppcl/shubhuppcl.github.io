@@ -16,6 +16,7 @@ const Navbar = () => {
 
     const navLinks = [
         { title: 'Home', id: 'hero' },
+        { title: 'DAM Forecast', url: 'https://shubhuppcl.github.io/DAMforecast', external: true },
         { title: 'Experience', id: 'experience' },
         { title: 'Skills', id: 'skills' },
         { title: 'Contact', id: 'contact' },
@@ -61,19 +62,38 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            <button
-                                onClick={() => scrollToSection(link.id)}
-                                style={{
-                                    color: 'var(--text-color)',
-                                    fontSize: '1rem',
-                                    fontWeight: '500',
-                                    position: 'relative',
-                                    overflow: 'hidden'
-                                }}
-                                className="nav-link"
-                            >
-                                {link.title}
-                            </button>
+                            {link.external ? (
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        color: 'var(--text-color)',
+                                        fontSize: '1rem',
+                                        fontWeight: '500',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        textDecoration: 'none'
+                                    }}
+                                    className="nav-link"
+                                >
+                                    {link.title}
+                                </a>
+                            ) : (
+                                <button
+                                    onClick={() => scrollToSection(link.id)}
+                                    style={{
+                                        color: 'var(--text-color)',
+                                        fontSize: '1rem',
+                                        fontWeight: '500',
+                                        position: 'relative',
+                                        overflow: 'hidden'
+                                    }}
+                                    className="nav-link"
+                                >
+                                    {link.title}
+                                </button>
+                            )}
                         </motion.li>
                     ))}
                     <motion.li
@@ -115,13 +135,26 @@ const Navbar = () => {
                         }}
                     >
                         {navLinks.map((link) => (
-                            <button
-                                key={link.title}
-                                onClick={() => scrollToSection(link.id)}
-                                style={{ fontSize: '1.5rem', color: 'var(--text-color)' }}
-                            >
-                                {link.title}
-                            </button>
+                            link.external ? (
+                                <a
+                                    key={link.title}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ fontSize: '1.5rem', color: 'var(--text-color)', textDecoration: 'none' }}
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.title}
+                                </a>
+                            ) : (
+                                <button
+                                    key={link.title}
+                                    onClick={() => scrollToSection(link.id)}
+                                    style={{ fontSize: '1.5rem', color: 'var(--text-color)' }}
+                                >
+                                    {link.title}
+                                </button>
+                            )
                         ))}
                     </motion.div>
                 )}
