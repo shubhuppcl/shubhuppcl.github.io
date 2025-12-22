@@ -16,6 +16,7 @@ const Navbar = () => {
 
     const navLinks = [
         { title: 'Home', id: 'hero' },
+        { title: 'Mod UPPCL', url: 'https://moduppcl.streamlit.app', external: true },
         { title: 'DAM Forecast', url: 'https://shubhuppcl.github.io/DAMforecast', external: true },
         { title: 'Experience', id: 'experience' },
         { title: 'Skills', id: 'skills' },
